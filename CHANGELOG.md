@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-07-14
+
+### Fixed
+
+- **Initial crop scale** — Crop rect now resets correctly when real image dimensions load, so `initialCropScale` (default 1 = full image) applies as expected instead of staying at placeholder size.
+
 ## [1.1.0] - 2026-03-05
 
 ### Added
