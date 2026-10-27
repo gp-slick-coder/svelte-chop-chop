@@ -83,7 +83,7 @@
     border-color: rgba(255, 255, 255, 0.25);
   }
 
-  .copy-btn.copied {
+  .copy-btn:global(.copied) {
     color: #22c55e;
     border-color: rgba(34, 197, 94, 0.4);
   }
