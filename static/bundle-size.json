@@ -1,12 +1,12 @@
 {
   "cropper": {
-    "raw": 41635,
-    "gzip": 9014,
-    "gzipKb": "8.8"
+    "raw": 42277,
+    "gzip": 9214,
+    "gzipKb": "9.0"
   },
   "full": {
-    "raw": 86484,
-    "gzip": 17724,
-    "gzipKb": "17.3"
+    "raw": 87308,
+    "gzip": 17923,
+    "gzipKb": "17.5"
   }
 }
