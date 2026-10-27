@@ -1,10 +1,11 @@
 <script lang="ts">
+  import type { CropperReturn } from "$lib/composables/create-cropper.svelte.js";
   import { Cropper } from "$lib";
   import "$lib/themes/default.css";
   import DocLiveExample from "../DocLiveExample.svelte";
 </script>
 
-{#snippet cropToolbar(cropper)}
+{#snippet cropToolbar(cropper: CropperReturn)}
   <div style="position: absolute; bottom: 12px; right: 12px; z-index: 10;">
     <button
       onclick={async () => {

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type { CropperReturn } from "$lib/composables/create-cropper.svelte.js";
   import { Cropper, ImageEditor } from "$lib";
   import { pluginFilters } from "$lib/plugins/plugin-filters.js";
   import { pluginFinetune } from "$lib/plugins/plugin-finetune.js";
@@ -44,7 +45,7 @@
   so large images export at their cropped region's actual dimensions.
 </p>
 
-{#snippet cropToolbar(cropper)}
+{#snippet cropToolbar(cropper: CropperReturn)}
   <div style="position: absolute; bottom: 12px; right: 12px; z-index: 10;">
     <button
       onclick={async () => {
@@ -70,10 +71,10 @@
 
 <DocLiveExample
   title="Basic Cropper"
-  code={`<script lang="ts">
+  code={`\x3cscript lang="ts">
   import { Cropper } from '@we-are-singular/svelte-chop-chop';
   import '@we-are-singular/svelte-chop-chop/themes/default';
-</script>
+\x3c/script>
 
 {#snippet cropToolbar(cropper)}
   <button onclick={async () => {
@@ -110,7 +111,7 @@
 
 <DocLiveExample
   title="Full ImageEditor with all plugins"
-  code={`<script lang="ts">
+  code={`\x3cscript lang="ts">
   import { ImageEditor } from '@we-are-singular/svelte-chop-chop';
   import { pluginFilters } from '@we-are-singular/svelte-chop-chop/plugins/filters';
   import { pluginFinetune } from '@we-are-singular/svelte-chop-chop/plugins/finetune';
@@ -118,7 +119,7 @@
   import { pluginWatermark } from '@we-are-singular/svelte-chop-chop/plugins/watermark';
   import { pluginResize } from '@we-are-singular/svelte-chop-chop/plugins/resize';
   import '@we-are-singular/svelte-chop-chop/themes/default';
-</script>
+\x3c/script>
 
 <ImageEditor
   src="/photo.jpg"

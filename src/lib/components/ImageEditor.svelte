@@ -10,6 +10,7 @@
     Point,
   } from "../core/types.js";
   import { createImageEditor } from "../composables/create-image-editor.svelte.js";
+  import EditorIcon from "./EditorIcon.svelte";
   import FilterStrip from "./FilterStrip.svelte";
   import CropStencil from "./CropStencil.svelte";
   import CircleStencil from "./CircleStencil.svelte";
@@ -216,13 +217,6 @@
   );
 </script>
 
-<svelte:head>
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
-  />
-</svelte:head>
-
 <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 <div
   class="chop-editor {className}"
@@ -394,7 +388,7 @@
           aria-label="Undo"
           title="Undo"
         >
-          <span class="material-symbols-rounded" aria-hidden="true">undo</span>
+          <EditorIcon name="undo" size={18} />
         </button>
         <button
           type="button"
@@ -404,7 +398,7 @@
           aria-label="Redo"
           title="Redo"
         >
-          <span class="material-symbols-rounded" aria-hidden="true">redo</span>
+          <EditorIcon name="redo" size={18} />
         </button>
       </div>
 
@@ -468,9 +462,7 @@
                 class="chop-btn-reset"
                 onclick={() => editor.resetFilters()}
               >
-                <span class="material-symbols-rounded" aria-hidden="true">
-                  restart_alt
-                </span>
+                <EditorIcon name="restart_alt" size={16} />
                 Reset
               </button>
             </div>
@@ -661,9 +653,7 @@
           aria-label="Rotate left 90°"
           title="Rotate left"
         >
-          <span class="material-symbols-rounded" aria-hidden="true">
-            rotate_left
-          </span>
+          <EditorIcon name="rotate_left" size={22} />
         </button>
         <button
           type="button"
@@ -672,9 +662,7 @@
           aria-label="Rotate right 90°"
           title="Rotate right"
         >
-          <span class="material-symbols-rounded" aria-hidden="true">
-            rotate_right
-          </span>
+          <EditorIcon name="rotate_right" size={22} />
         </button>
       </div>
 
@@ -689,7 +677,7 @@
           title="Crop"
           aria-pressed={!editor.activeTab}
         >
-          <span class="material-symbols-rounded" aria-hidden="true">crop</span>
+          <EditorIcon name="crop" />
         </button>
         {#each tabActions as action (action.id)}
           {@const panelName = action.id.replace("-tab", "")}
@@ -704,25 +692,15 @@
             title={action.label}
           >
             {#if action.id === "finetune-tab"}
-              <span class="material-symbols-rounded" aria-hidden="true">
-                tune
-              </span>
+              <EditorIcon name="tune" />
             {:else if action.id === "filters-tab"}
-              <span class="material-symbols-rounded" aria-hidden="true">
-                photo_filter
-              </span>
+              <EditorIcon name="photo_filter" />
             {:else if action.id === "frame-tab"}
-              <span class="material-symbols-rounded" aria-hidden="true">
-                border_all
-              </span>
+              <EditorIcon name="border_all" />
             {:else if action.id === "watermark-tab"}
-              <span class="material-symbols-rounded" aria-hidden="true">
-                text_fields
-              </span>
+              <EditorIcon name="text_fields" />
             {:else}
-              <span class="material-symbols-rounded" aria-hidden="true">
-                star
-              </span>
+              <EditorIcon name="star" />
             {/if}
           </button>
         {/each}
@@ -740,9 +718,7 @@
             title="Rectangle"
             aria-pressed={shape === "rect"}
           >
-            <span class="material-symbols-rounded" aria-hidden="true">
-              crop_square
-            </span>
+            <EditorIcon name="crop_square" />
           </button>
           <button
             type="button"
@@ -753,26 +729,14 @@
             title="Circle"
             aria-pressed={shape === "circle"}
           >
-            <span class="material-symbols-rounded" aria-hidden="true">
-              circle
-            </span>
+            <EditorIcon name="circle" />
           </button>
         </div>
 
         <div class="chop-ar-pill" title="Aspect ratio">
-          <span
-            class="material-symbols-rounded chop-ar-icon"
-            aria-hidden="true"
-          >
-            aspect_ratio
-          </span>
+          <EditorIcon name="aspect_ratio" size={18} class="chop-ar-icon" />
           <span class="chop-ar-label" aria-hidden="true">{arLabel}</span>
-          <span
-            class="material-symbols-rounded chop-ar-caret"
-            aria-hidden="true"
-          >
-            expand_more
-          </span>
+          <EditorIcon name="expand_more" size={18} class="chop-ar-caret" />
           <select
             class="chop-ar-select"
             disabled={shape === "circle"}
@@ -795,27 +759,6 @@
 </div>
 
 <style>
-  /* ── Material Symbols config ─────────────────────────── */
-  .material-symbols-rounded {
-    font-family: "Material Symbols Rounded", sans-serif;
-    font-variation-settings:
-      "FILL" 0,
-      "wght" 300,
-      "GRAD" 0,
-      "opsz" 24;
-    font-size: 20px;
-    line-height: 1;
-    letter-spacing: normal;
-    text-transform: none;
-    display: inline-block;
-    white-space: nowrap;
-    word-wrap: normal;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
-    font-feature-settings: "liga";
-    user-select: none;
-  }
-
   /* ── Shell ─────────────────────────────────────────────── */
   .chop-editor {
     position: relative;
@@ -954,10 +897,6 @@
     transition:
       background 0.12s,
       color 0.12s;
-  }
-
-  .chop-pill-btn .material-symbols-rounded {
-    font-size: 18px;
   }
 
   .chop-pill-btn:hover:not(:disabled) {
@@ -1147,9 +1086,6 @@
       border-color 0.12s;
   }
 
-  .chop-btn-reset .material-symbols-rounded {
-    font-size: 16px;
-  }
   .chop-btn-reset:hover {
     background: rgba(255, 255, 255, 0.07);
     color: #fff;
@@ -1336,10 +1272,6 @@
     color: rgba(255, 255, 255, 0.85);
   }
 
-  .chop-bare-btn .material-symbols-rounded {
-    font-size: 22px;
-  }
-
   /* Tool tabs pill */
   .chop-tool-pill {
     display: flex;
@@ -1370,9 +1302,6 @@
     gap: 5px;
   }
 
-  .chop-pill-tab .material-symbols-rounded {
-    font-size: 20px;
-  }
   .chop-pill-tab:hover {
     background: rgba(255, 255, 255, 0.06);
     color: rgba(255, 255, 255, 0.8);
@@ -1423,13 +1352,11 @@
     color: #fff;
   }
 
-  .chop-ar-icon {
-    font-size: 18px;
+  .chop-ar-pill :global(.chop-ar-icon) {
     flex-shrink: 0;
     opacity: 0.7;
   }
-  .chop-ar-caret {
-    font-size: 18px;
+  .chop-ar-pill :global(.chop-ar-caret) {
     flex-shrink: 0;
     opacity: 0.5;
   }

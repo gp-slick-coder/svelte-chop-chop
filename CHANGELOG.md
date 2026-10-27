@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **Editor icon download** — Bundle only the 15 required Material Symbols as inline SVGs, removing the external Google Fonts stylesheet and full icon-font download.
+- **Type checking** — Add missing development types, type documentation toolbar snippets, escape script tags in code examples, and skip conflicting dependency declarations while retaining strict application checks.
+
 ## [1.1.1] - 2026-07-14
 
 ### Fixed

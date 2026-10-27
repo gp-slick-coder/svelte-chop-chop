@@ -142,7 +142,7 @@
 
 <DocLiveExample
   title="ImageEditor with all plugins"
-  code={`<script lang="ts">
+  code={`\x3cscript lang="ts">
   import { ImageEditor } from '@we-are-singular/svelte-chop-chop';
   import { pluginFilters, pluginFinetune, pluginFrame, pluginWatermark, pluginResize } from '@we-are-singular/svelte-chop-chop';
   import '@we-are-singular/svelte-chop-chop/themes/default';
@@ -157,7 +157,7 @@
       URL.revokeObjectURL(url);
     }
   }
-</script>
+\x3c/script>
 
 <ImageEditor
   src="/photo.jpg"
